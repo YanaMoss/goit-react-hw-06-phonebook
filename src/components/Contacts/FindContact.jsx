@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
-import { filter } from '../../redux/phonebook-actions';
+import { filterContact } from '../../redux/phonebook-actions';
 import { Input } from '../AddContact/AddContactForm.styled';
 
 export function FindContact({ title }) {
@@ -10,7 +10,10 @@ export function FindContact({ title }) {
   return (
     <div>
       <h3>{title}</h3>
-      <Input type="text" onChange={e => dispatch(filter(e.target.value))} />
+      <Input
+        type="text"
+        onChange={e => dispatch(filterContact(e.target.value))}
+      />
     </div>
   );
 }

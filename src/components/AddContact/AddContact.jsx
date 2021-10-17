@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { addContact } from '../../redux/phonebook-actions';
-// import { v4 as uuidv4 } from 'uuid';
-
 import inputForms from '../data/inputForms.json';
 import { Form } from './AddContactForm.styled';
 import { Label } from './AddContactForm.styled';
@@ -65,36 +63,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(null, mapDispatchToProps)(AddContact);
-// export class AddContact extends Component {
-//   state = {
-//     id: "",
-//     name: "",
-//     number: "",
-//   };
-
-//   handleChange = ({ name }, value) => {
-//     this.setState({ [name]: value, id: uuidv4() });
-//   };
-
-//   handleSubmit = (e) => {
-//     e.preventDefault();
-//     this.props.onSubmit(this.state);
-//     this.reset(e);
-//   };
-
-//   reset = (e) => {
-//     this.setState({ id: "", name: "", number: "" });
-//     e.currentTarget.name.value = "";
-//     e.currentTarget.number.value = "";
-//   };
-
-//   render() {
-//     return (
-//       <AddContactForm
-//         inputForms={inputForms}
-//         handleChange={handleChange}
-//         handleSubmit={this.handleSubmit}
-//       />
-//     );
-//   }
-// }
