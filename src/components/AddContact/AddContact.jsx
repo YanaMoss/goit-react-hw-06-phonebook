@@ -5,7 +5,7 @@ import inputForms from '../data/inputForms.json';
 import { Form } from './AddContactForm.styled';
 import { Label } from './AddContactForm.styled';
 import { Input } from './AddContactForm.styled';
-import { Button } from '../Button/Button';
+import { ButtonPhonebook } from '../Button/Button.styled';
 
 export function AddContact({ onSubmit }) {
   const [name, setName] = useState('');
@@ -53,7 +53,7 @@ export function AddContact({ onSubmit }) {
           />
         </Label>
       ))}
-      <Button title="Add contact" type="submit" />
+      <ButtonPhonebook type="submit">Add contact</ButtonPhonebook>
     </Form>
   );
 }

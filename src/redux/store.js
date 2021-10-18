@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import localStorage from 'redux-persist/lib/storage';
 import phonebookReducer from './phonebook-reducer';
@@ -13,19 +12,18 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-const persistConfig = {
+const phonebookPersistConfig = {
   key: 'phonebook',
   storage: localStorage,
+  blacklist: ['filter'],
 };
 
-const rootReducer = combineReducers({
-  phonebook: phonebookReducer,
-});
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// const persistedReducer = persistReducer(phonebookPersistConfig, rootReducer);
 
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    phonebook: persistReducer(phonebookPersistConfig, phonebookReducer),
+  },
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

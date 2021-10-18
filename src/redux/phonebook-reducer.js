@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
-// import types from './phonebook-types';
+import types from './phonebook-types';
 
 const items = createReducer([], {
-  'phonebook/add': (state, action) => [...state, action.payload],
-  'phonebook/delete': (state, action) =>
+  [types.ADD]: (state, action) => [...state, action.payload],
+  [types.DELETE]: (state, action) =>
     state.filter(({ id }) => id !== action.payload),
 });
 // const items = (state = [], { type, payload }) => {
@@ -19,7 +19,7 @@ const items = createReducer([], {
 //   }
 // };
 const filter = createReducer('', {
-  'phonebook/filter': (_, action) => action.payload,
+  [types.FILTER]: (_, action) => action.payload,
 });
 // const filter = (state = '', { type, payload }) => {
 //   switch (type) {
